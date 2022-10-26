@@ -20,10 +20,6 @@ for y in range(b):
     right(90)
     forward(50)
     right(90)
-#vrácení na [0,0] pozici        
-right(90)
-forward(50*b)
-left(90)
 
 while True: #samotná hra, střídání mezi hráčem 1 a 2, počet kol není omezen, ani pozice, lze dát [4,4] při hraní na 3x3 poli
     c = int(input("Hráč 1, zadejte x-ovou souřadnici: "))
