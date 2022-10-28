@@ -8,6 +8,7 @@ speed(0)
 stranaX = int(float(input("Zadejte šířku hracího pole (=množství sloupců): ")))
 stranaY = int(float(input("Zadejte výšku hracího pole (=množství řádků): ")))
 
+
 #vykresleni hraciho pole - ctverec
 for y in range(stranaY):
     for x in range (stranaX):
@@ -21,19 +22,19 @@ for y in range(stranaY):
     forward(50)
     right(90)
 
-while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; nekonecny cyklus while, nevim jak omezit, kdyz nemam fixni pocet kol - výhra v ruznem poctu kol nebo kvuli upravitelne velikosti hraciho pole)
+for i in range(int((stranaX*stranaY)/2)): #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto řádku omezení počtu kol, závisí na velikosti hracího pole - jedná se o maximální možný počet tahů
     while True: #hráč 1, zadá souřadnici x, ověří se, že je OK, poté Y a stejné ověření, pokud OK, nakreslí na vybraném místě křížek
         hraX = input("Hráč 1, zadejte x-ovou souřadnici: ")
         
         if not hraX.isdigit() or int(hraX) > stranaX: 
-            hraX = print("Nesprávný input, formát by měl být v ")
+            hraX = print("Nesprávný input, x-ová souřadnice by měla být ve formátu celého čísla a mělo by být v intervalu od 1 do",stranaX,".")
         else:
             break
         
     while True:
         hraY = input("Hráč 1, zadejte y-ovou souřadnici: ")
         if not hraY.isdigit() or int(hraY) > stranaY:
-            hraY = print("Nesprávný input")
+            hraY = print("Nesprávný input, y-ová souřadnice by měla být ve formátu celého čísla a mělo by být v intervalu od 1 do",stranaY,".")
         else:
             break
 
@@ -56,14 +57,14 @@ while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; nekonecny cyklus whi
         hraX = input("Hráč 2, zadejte x-ovou souřadnici: ")
         
         if not hraX.isdigit() or int(hraX) > stranaX:
-            hraX = print("Nesprávný input")
+            hraX = print("Nesprávný input, x-ová souřadnice by měla být ve formátu celého čísla a mělo by být v intervalu od 1 do",stranaX,".")
         else:
             break
 
     while True:
         hraY = input("Hráč 2, zadejte y-ovou souřadnici: ")
         if not hraY.isdigit() or int(hraY) > stranaY:
-            hraY = print("Nesprávný input")
+            hraY = print("Nesprávný input, y-ová souřadnice by měla být ve formátu celého čísla a mělo by být v intervalu od 1 do",stranaY,".")
         else:
             break
 
