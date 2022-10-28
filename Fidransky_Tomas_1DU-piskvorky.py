@@ -1,9 +1,8 @@
 from math import sqrt
-from turtle import forward, right, left, exitonclick, setpos, speed, penup, pendown, circle
+from turtle import forward, right, left, setpos, speed, penup, pendown, circle
+from unicodedata import digit
 
-speed(10)
-
-#Poznámka shrnující - hra funguje při správném zadání hodnot (float dojde k zaokrouhlení na int případně), ale spadne při zadání str místo int
+speed(0)
 
 #velikost hraciho pole - volitelna velikost
 stranaX = int(float(input("Zadejte šířku hracího pole (=množství sloupců): ")))
@@ -22,16 +21,26 @@ for y in range(stranaY):
     forward(50)
     right(90)
 
-while True: #samotna hra, stridani mezi hracem 1 (zde) a 2 (nekonecny cyklus while, nevim jak omezit, kdyz nemam fixni pocet kol - výhra v ruznem poctu kol nebo kvuli upravitelne velikosti hraciho pole) 
-    hraX = int(float(input("Hráč 1, zadejte x-ovou souřadnici: ")))   
-    hraY = int(float(input("Hráč 1, nyní zadejte y-ovou souřadnici: ")))
-    #while hraX != int or hraY != int: #neúspěšná snaha zajistit, aby program nespadl při zadání jiného znaku než čísla a vyzval hráče zadat celé číslo; došlo k zacyklení programu, neprošlo to k další podmínce
-    #    hraX = int(input("Hráč 1, zadejte x-ovou souřadnici ve formátu celých čísel: "))
-    #    hraY = int(input("Hráč 1, zadejte y-ovou souřadnici ve formátu celých čísel: "))   
-    while hraX > stranaX or hraY > stranaY: 
-        print("Zadejte prosím hodnoty souřadnic X a Y, které jsou maximálně tak velké, jako jste zvolil pro šířku či výšku hracího pole")
-        hraX = int(float(input("Hráč 1, zadejte x-ovou souřadnici: ")))
-        hraY = int(float(input("Hráč 1, nyní zadejte y-ovou souřadnici: ")))
+while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; nekonecny cyklus while, nevim jak omezit, kdyz nemam fixni pocet kol - výhra v ruznem poctu kol nebo kvuli upravitelne velikosti hraciho pole)
+    while True: #hráč 1, zadá souřadnici x, ověří se, že je OK, poté Y a stejné ověření, pokud OK, nakreslí na vybraném místě křížek
+        hraX = input("Hráč 1, zadejte x-ovou souřadnici: ")
+        
+        if not hraX.isdigit() or int(hraX) > stranaX: 
+            hraX = print("Nesprávný input, formát by měl být v ")
+        else:
+            break
+        
+    while True:
+        hraY = input("Hráč 1, zadejte y-ovou souřadnici: ")
+        if not hraY.isdigit() or int(hraY) > stranaY:
+            hraY = print("Nesprávný input")
+        else:
+            break
+
+    hraX = int(hraX)
+    hraY = int(hraY)
+
+    #kreslení křížku
     penup()
     setpos(((50*hraX)-50),((50*hraY)-50))
     pendown()
@@ -42,13 +51,26 @@ while True: #samotna hra, stridani mezi hracem 1 (zde) a 2 (nekonecny cyklus whi
     right(135)
     forward((sqrt(5000)))
 
-#HRAC 2 - opět zadá X a Y souřadnice, pokud jsou hodnoty OK z hlediska podmínek, tak na daném políčku vykreslí kolečko, poté opět hráč 1 a dokola
-    hraX = int(float(input("Hráč 2, nyní zadejte X-ovou souřadnici: ")))
-    hraY = int(float(input("Hráč 2, nyní zadejte y-ovou souřadnici: ")))
-    while hraX > stranaX or hraY > stranaY:
-        print("Zadejte prosím hodnoty souřadnic X a Y, které jsou maximálně tak velké, jako jste zvolil pro šířku či výšku hracího pole")
-        hraX = int(float(input("Hráč 2, zadejte x-ovou souřadnici: ")))
-        hraY = int(float(input("Hráč 2, nyní zadejte y-ovou souřadnici: ")))
+    #HRAC 2 - opět zadá X a Y souřadnice, if zjišťuje podmínky, pokud jsou  OK, tak na vybraném políčku vykreslí kolečko, poté volí místo hráč 1 a to se opakuje do nekonečna
+    while True:    
+        hraX = input("Hráč 2, zadejte x-ovou souřadnici: ")
+        
+        if not hraX.isdigit() or int(hraX) > stranaX:
+            hraX = print("Nesprávný input")
+        else:
+            break
+
+    while True:
+        hraY = input("Hráč 2, zadejte y-ovou souřadnici: ")
+        if not hraY.isdigit() or int(hraY) > stranaY:
+            hraY = print("Nesprávný input")
+        else:
+            break
+
+    hraX = int(hraX)
+    hraY = int(hraY)
+
+    #kreslení kolečka
     penup()
     setpos(((50*hraX)-50),((50*hraY)-50))
     right(135)
