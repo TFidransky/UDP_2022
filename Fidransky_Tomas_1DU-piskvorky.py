@@ -29,7 +29,7 @@ for y in range(stranaY):
     forward(50)
     right(90)
 
-for i in range(int((stranaX*stranaY)/2)): #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto řádku omezení počtu kol, závisí na velikosti hracího pole - jedná se o maximální možný počet tahů
+for i in range(int(((stranaX*stranaY)/2)+0.5)): #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto řádku omezení počtu kol, závisí na velikosti hracího pole - jedná se o maximální možný počet tahů
     while True: #hráč 1, zadá souřadnici "x", ověří se, že je OK, poté "y" a stejné ověření, pokud OK, nakreslí na vybraném místě křížek
         hraX = input("Hráč 1, zadejte x-ovou souřadnici: ")        
         if not hraX.isdigit() or int(hraX) > stranaX: 
