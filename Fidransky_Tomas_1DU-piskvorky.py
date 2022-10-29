@@ -28,8 +28,9 @@ for y in range(stranaY):
     right(90)
     forward(50)
     right(90)
-tahy = stranaX * stranaY
-aktualni = 0
+
+tahy = stranaX * stranaY #počet tahů v dané hře
+aktualni = 0 #zjišťuje jaký tah byl zahrán
 
 while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto řádku omezení počtu kol, závisí na velikosti hracího pole - jedná se o maximální možný počet tahů
     while True: #hráč 1, zadá souřadnici "x", ověří se, že je OK, poté "y" a stejné ověření, pokud OK, nakreslí na vybraném místě křížek
@@ -46,7 +47,7 @@ while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto řádku ome
         else:
             break
 
-    hraX = int(hraX)
+    hraX = int(hraX) #převod na integer, aby fungovalo vykreslování správně
     hraY = int(hraY)
 
     #kreslení křížku
@@ -59,14 +60,14 @@ while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto řádku ome
     forward(50)
     right(135)
     forward((sqrt(5000)))
+
     aktualni = aktualni + 1
-    if aktualni >= tahy:
+    if aktualni >= tahy: #zjišťuje, jestli aktuální tah už není tolikátý, kolik tahů je; v případě, že už je cíl naplněn, tak se cyklus přeruší a hra ukončí (respektive nedovolí další vstup)
         break
 
-    #HRAC 2 - opět zadá "x" a "y" souřadnice, if zjišťuje podmínky, pokud jsou  OK, tak na vybraném políčku vykreslí kolečko, poté volí místo hráč 1 a to se opakuje do nekonečna
+    #HRÁČ 2 - opět zadá "x" a "y" souřadnice, if zjišťuje podmínky, pokud jsou  OK, tak na vybraném políčku vykreslí kolečko, poté volí místo hráč 1 a to se opakuje do nekonečna
     while True:    
-        hraX = input("Hráč 2, zadejte x-ovou souřadnici: ")
-        
+        hraX = input("Hráč 2, zadejte x-ovou souřadnici: ") #stejně jako u hráče 1, kontrola parametrů, nejdřív pro "x", pak pro "y"        
         if not hraX.isdigit() or int(hraX) > stranaX:
             hraX = print("Nesprávný input, x-ová souřadnice by měla být ve formátu celého čísla a mělo by být v intervalu od 1 do",stranaX,".")
         else:
@@ -89,8 +90,10 @@ while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto řádku ome
     forward(25)
     pendown()
     circle(25)
+
     aktualni = aktualni + 1
-    if aktualni >= tahy:
+    if aktualni >= tahy: #zjišťuje, jestli aktuální tah už není tolikátý, kolik tahů je; v případě, že už je cíl naplněn, tak se cyklus přeruší a hra ukončí (respektive nedovolí další vstup)
         break
+print("Konec hry! Program ukončíte kliknutím.")
 exitonclick()
 
