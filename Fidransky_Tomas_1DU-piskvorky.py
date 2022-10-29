@@ -1,5 +1,5 @@
 from math import sqrt
-from turtle import forward, right, left, setpos, speed, penup, pendown, circle
+from turtle import exitonclick, forward, right, left, setpos, speed, penup, pendown, circle
 from unicodedata import digit
 
 speed(0)
@@ -28,8 +28,10 @@ for y in range(stranaY):
     right(90)
     forward(50)
     right(90)
+tahy = stranaX * stranaY
+aktualni = 0
 
-for i in range(int(((stranaX*stranaY)/2)+0.5)): #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto řádku omezení počtu kol, závisí na velikosti hracího pole - jedná se o maximální možný počet tahů
+while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto řádku omezení počtu kol, závisí na velikosti hracího pole - jedná se o maximální možný počet tahů
     while True: #hráč 1, zadá souřadnici "x", ověří se, že je OK, poté "y" a stejné ověření, pokud OK, nakreslí na vybraném místě křížek
         hraX = input("Hráč 1, zadejte x-ovou souřadnici: ")        
         if not hraX.isdigit() or int(hraX) > stranaX: 
@@ -57,6 +59,9 @@ for i in range(int(((stranaX*stranaY)/2)+0.5)): #samotna hra, stridani mezi hrac
     forward(50)
     right(135)
     forward((sqrt(5000)))
+    aktualni = aktualni + 1
+    if aktualni >= tahy:
+        break
 
     #HRAC 2 - opět zadá "x" a "y" souřadnice, if zjišťuje podmínky, pokud jsou  OK, tak na vybraném políčku vykreslí kolečko, poté volí místo hráč 1 a to se opakuje do nekonečna
     while True:    
@@ -84,3 +89,8 @@ for i in range(int(((stranaX*stranaY)/2)+0.5)): #samotna hra, stridani mezi hrac
     forward(25)
     pendown()
     circle(25)
+    aktualni = aktualni + 1
+    if aktualni >= tahy:
+        break
+exitonclick()
+
