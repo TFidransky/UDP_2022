@@ -31,13 +31,13 @@ def vykresli_pole(stranaX, stranaY): #vykresleni hraciho pole - ctverec, funkce
         right(90)
 
 def souradnice_hrac_x():
-    while True: #hráč 1, zadá souřadnici "x" (resp. "y"), ověří se, že je OK, pokud OK, tak hodnotu přiřadí proměnné hraX (resp. hraY)
+    while True: #hráč 1, zadá souaadnici "x" (resp. "y"), overi se, ze je OK, pokud OK, tak hodnotu priradi promenne hraX (resp. hraY)
         hraX = input("Hraci, zadejte x-ovou souradnici: ")        
         if not hraX.isdigit() or int(hraX) > stranaX: 
             hraX = print("Nespravny input, x-ova souradnice by mela byt ve formatu celeho cisla a melo by byt v intervalu od 1 do",stranaX,".")
         else:
             break
-    hraX = int(hraX) #převod na integer, aby fungovalo vykreslování správně
+    hraX = int(hraX) #prevod na integer, aby fungovalo vykreslovani spravne
     return(hraX)
 
 def souradnice_hrac_y():
@@ -61,10 +61,10 @@ def namaluj_krizek(hraX, hraY):
     right(135)
     forward((sqrt(5000)))
 
-def bot_souradnice_x(stranaX): #vytvoří se náhodná souřadnice x
+def bot_souradnice_x(stranaX): #vytvori se náhodná souradnice x
     return (randint(1, stranaX))
     
-def bot_souradnice_y(stranaY): #vytvoří se náhodná souřadnice y       
+def bot_souradnice_y(stranaY): #vytvori se náhodná souradnice y       
     return (randint(1, stranaY))
     
 def vykresli_kolecko(hraX, hraY):
@@ -78,7 +78,7 @@ def vykresli_kolecko(hraX, hraY):
     
 speed(0)
 
-stranaX = input_pole_x() #přiřadí x souřadnici, resp. y k proměnné stranaX (resp. stranaY), aby se to dalo vykreslit
+stranaX = input_pole_x() #priradi x souradnici, resp. y k promenne stranaX (resp. stranaY), aby se to dalo vykreslit
 stranaY = input_pole_y()
 
 vykresli_pole(stranaX, stranaY)
@@ -89,7 +89,7 @@ hraY = 0
 tahy = stranaX * stranaY #pocet tahu v dane hre
 aktualni = 0 #zjistuje jaky tah byl zahran
 
-while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto řádku omezení počtu kol, závisí na velikosti hracího pole - jedná se o maximální možný počet tahů
+while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto radku omezeni poctu kol, zavisi na velikosti hraciho pole - jedna se o maximalni mozny pocet tahu
     sour_x = souradnice_hrac_x()
     sour_y = souradnice_hrac_y()
     namaluj_krizek(sour_x, sour_y)
