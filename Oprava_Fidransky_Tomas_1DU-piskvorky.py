@@ -1,5 +1,4 @@
 from math import sqrt
-from tkinter import HORIZONTAL
 from turtle import exitonclick, forward, right, left, setpos, speed, penup, pendown, circle
 from unicodedata import digit
 from random import randint
