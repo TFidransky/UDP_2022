@@ -31,7 +31,7 @@ def vykresli_pole(stranaX, stranaY): #vykresleni hraciho pole - ctverec, funkce
         right(90)
 
 def souradnice_hrac_x():
-    while True: #hráč 1, zadá souaadnici "x" (resp. "y"), overi se, ze je OK, pokud OK, tak hodnotu priradi promenne hraX (resp. hraY)
+    while True: #hrac 1 zada souradnici "x" (resp. "y"), overi se, ze je OK; pokud OK, tak hodnotu priradi promenne hraX (resp. hraY)
         hraX = input("Hraci, zadejte x-ovou souradnici: ")        
         if not hraX.isdigit() or int(hraX) > stranaX: 
             hraX = print("Nespravny input, x-ova souradnice by mela byt ve formatu celeho cisla a melo by byt v intervalu od 1 do",stranaX,".")
@@ -61,10 +61,10 @@ def namaluj_krizek(hraX, hraY):
     right(135)
     forward((sqrt(5000)))
 
-def bot_souradnice_x(stranaX): #vytvori se náhodná souradnice x
+def bot_souradnice_x(stranaX): #vytvori se nahodna souradnice x
     return (randint(1, stranaX))
     
-def bot_souradnice_y(stranaY): #vytvori se náhodná souradnice y       
+def bot_souradnice_y(stranaY): #vytvori se nahodna souradnice y       
     return (randint(1, stranaY))
     
 def vykresli_kolecko(hraX, hraY):
