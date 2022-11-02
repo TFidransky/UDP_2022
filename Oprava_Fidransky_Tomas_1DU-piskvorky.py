@@ -12,8 +12,7 @@ def input_pole_x(): # velikost hraciho pole - volitelna velikost
             break  
     stranaX = int(stranaX)
     return(stranaX)
-
-  
+ 
 def input_pole_y():
     while True:
         stranaY = input("Zadejte vysku hraciho pole (=mnozstvi radku): ")
@@ -44,7 +43,7 @@ def vykresli_pole(stranaX, stranaY): #vykresleni hraciho pole - ctverec, funkce
 def souradnice_hrac_x():
     while True: #hrac 1 zada souradnici "x" (resp. "y"), overi se, ze je OK; pokud OK, tak hodnotu priradi promenne hraX (resp. hraY)
         hraX = input("Hraci, zadejte x-ovou souradnici: ")        
-        if not hraX.isdigit() or int(hraX) > stranaX: 
+        if not hraX.isdigit() or int(hraX) > stranaX or int(hraX) == 0: 
             hraX = print("Nespravny input, x-ova souradnice by mela byt ve formatu celeho cisla a melo by byt v intervalu od 1 do",stranaX,".")
         else:
             break
@@ -54,7 +53,7 @@ def souradnice_hrac_x():
 def souradnice_hrac_y():
     while True:
         hraY = input("Hraci, zadejte y-ovou souradnici: ")
-        if not hraY.isdigit() or int(hraY) > stranaY:
+        if not hraY.isdigit() or int(hraY) > stranaY or int(hraY) == 0:
             hraY = print("Nespravny input, y-ova souradnice by mela byt ve formatu celeho cisla a melo by byt v intervalu od 1 do",stranaY,".")
         else:
             break
