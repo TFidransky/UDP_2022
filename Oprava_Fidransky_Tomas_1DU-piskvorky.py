@@ -4,18 +4,29 @@ from unicodedata import digit
 from random import randint
 
 def input_pole_x(): # velikost hraciho pole - volitelna velikost
-    stranaX = input("Zadejte sirku hraciho pole (=mnozstvi sloupcu): ")
-    if not stranaX.isdigit():
-        print ("Nespravny input, sirka hraciho pole musi byt ve formatu celych cisel")
+    while True:
+        stranaX = input("Zadejte sirku hraciho pole (=mnozstvi sloupcu): ")
+        if not stranaX.isdigit() or int(stranaX) == 0:
+            print ("Nespravny input, sirka hraciho pole musi byt ve formatu celych cisel a nemuze byt nulova")
+        else:
+            break  
     stranaX = int(stranaX)
     return(stranaX)
-    
+
+  
 def input_pole_y():
-    stranaY = input("Zadejte sirku hraciho pole (=mnozstvi sloupcu): ")
-    if not stranaY.isdigit():
-        print ("Nespravny input, sirka hraciho pole musi byt ve formatu celych cisel")
+    while True:
+        stranaY = input("Zadejte vysku hraciho pole (=mnozstvi radku): ")
+        if not stranaY.isdigit() or int(stranaY) == 0:
+            print ("Nespravny input, vyska hraciho pole musi byt ve formatu celych cisel a nemuze byt nulova")
+        else:
+            break
     stranaY = int(stranaY)
     return(stranaY)
+
+#def input_pole():
+    while True:
+        stranaX = input
           
 def vykresli_pole(stranaX, stranaY): #vykresleni hraciho pole - ctverec, funkce
     for y in range(stranaY):
