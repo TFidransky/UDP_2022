@@ -40,7 +40,7 @@ def souradnice_hrac(): #input od hráče, ověření podmínek, pak return do hr
             hraY = print("Nespravny input, y-ova souradnice by mela byt ve formatu celeho cisla a melo by byt v intervalu od 1 do",stranaY,".")
         return int(hraX), int(hraY)
 
-def namaluj_krizek():
+def namaluj_krizek(hraX, hraY):
     penup()
     setpos(((50*hraX)-50),((50*hraY)-50))
     pendown()
@@ -56,7 +56,7 @@ def bot_souradnice(): #náhodné souřadnice pro bota
     bot_y = randint(1, stranaY)
     return int(bot_x), int(bot_y)
 
-def vykresli_kolecko():
+def vykresli_kolecko(bot_x, bot_y):
     penup()
     setpos(((50*bot_x)-50),((50*bot_y)-50))
     right(135)
@@ -76,14 +76,14 @@ aktualni = 0 #zjistuje jaky tah byl zahran
 
 while True: #samotna hra, stridani mezi hracem 1 (zde) a 2; na tomto radku omezeni poctu kol, zavisi na velikosti hraciho pole - jedna se o maximalni mozny pocet tahu
     hraX, hraY = souradnice_hrac()
-    namaluj_krizek()
+    namaluj_krizek(hraX, hraY)
     aktualni = aktualni + 1
     if aktualni >= tahy: #zjistuje, jestli aktualni tah uz neni tolikaty, kolik tahu ma dana hra mit; v pripade, ze uz je cil naplnen, tak se cyklus prerusi a hra ukonci (respektive nedovoli dalsi vstup)
         break
 
     #bot nahodna funkce, pro x a y priradi pro cislo 1 az stranaX (resp. stranaY), poté vykreslí na daném místě kolečko
     bot_x, bot_y = bot_souradnice()    
-    vykresli_kolecko()
+    vykresli_kolecko(bot_x, bot_y)
     aktualni = aktualni + 1
     if aktualni >= tahy: #zjistuje, jestli aktualni tah uz neni tolikaty, kolik tahu ma dana hra mit; v pripade, ze uz je cil naplnen, tak se cyklus prerusi a hra ukonci (respektive nedovoli dalsi vstup)
         break
